@@ -4,12 +4,12 @@ from unipath import Path
 from django.utils.crypto import get_random_string
 # instalado pip install unipath
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
 #3 = niveles de carpeta
-#SECRET_KEY = 'efa%6h^^p#x&uw5!u^3+-7+hp9rlje0udc$pj(#u7g%9*=k#*5'
 
-chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-SECRET_KEY = get_random_string(50, chars)
+SECRET_KEY = 'efa%6h^^p#x&uw5!u^3+-7+hp9rlje0udc$pj(#u7g%9*=k#*5'
+
+#chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+#SECRET_KEY = get_random_string(50, chars)
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
