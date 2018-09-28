@@ -1,0 +1,16 @@
+python C:\Users\ASUS\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\Django-2.1.1-py3.6.egg\django\bin\django-admin.py start
+app home
+
+para creear un app vista o direccion html
+
+
+--> jinja esta echo python template django
+sorcat render viene en gjango en view
+
+procesadores de contexto para no repetir vista
+
+{%tags%}flujo de salida, tags {%for
+{%if e=="e" %}
+{% extends "base.html" %} bloque de html
+{%block%}
+{%endblock%}

@@ -1,12 +1,15 @@
 #instancias del proyecto con que valores inicializa
 import os
 from unipath import Path
+from django.utils.crypto import get_random_string
 # instalado pip install unipath
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 #3 = niveles de carpeta
-SECRET_KEY = 'efa%6h^^p#x&uw5!u^3+-7+hp9rlje0udc$pj(#u7g%9*=k#*5'
+#SECRET_KEY = 'efa%6h^^p#x&uw5!u^3+-7+hp9rlje0udc$pj(#u7g%9*=k#*5'
 
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = get_random_string(50, chars)
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -14,6 +17,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'modelo.logicanegocio',
 ]
 
 TERCEROS = [
@@ -22,10 +26,21 @@ TERCEROS = [
 
 LOCAL = [
     'modelo.logicanegocio',
-    'apps.home',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'modelo.logicanegocio',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PaginaEdito.wsgi.application'
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -67,5 +82,35 @@ USE_L10N = True
 
 USE_TZ = True
 
-TEMPLATES_DIRS = [Path(__file__).ancestor(3).child('templates')]
+
 #archivos html alojados
+#configuracion para un ambiente usado
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'Baseedu.db',
+    }
+}
+
+WSGI_APPLICATION = 'PaginaEdito.wsgi.application'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+STATIC_URL = '/static/'

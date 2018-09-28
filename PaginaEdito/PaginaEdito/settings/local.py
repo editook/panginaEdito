@@ -1,6 +1,4 @@
 from .base import *
-import os
-
 #configuracion para un ambiente usado
 
 DEBUG = True
@@ -10,10 +8,7 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'Edito',
-        'USER': 'editook',
-        'PASSWORD': 'eduardo123',
-        'HOST': 'localhost',
+        'NAME': 'Baseedu.db',
     }
 }
 
